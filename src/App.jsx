@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import gameboy from './assets/GBA-face-gametrog.webp'
 function generateIds() {
   const arr = [];
   while (arr.length < 9) {
@@ -25,7 +27,6 @@ function Card({ id, poke, onclick }) {
   )
 }
 
-import React, { useEffect, useState } from 'react';
 
 function App() {
   const [temp, setTemp] = useState([]);
@@ -59,8 +60,8 @@ function App() {
 
   return (
     <>
-      <p style={{textAlign:'center'}}>Pokemon Memory Game</p>
-      <p>Score: {clickedList.length}</p>
+      <img id='bg' src={gameboy}/>
+      <p style={{textAlign:'center'}}>Pokemon Memory Game | Score: {clickedList.length}</p>
       <div className="card-container">
         {temp.map((x) => { return temp.length > 0 ? <Card id={x.name} key={x} poke={x} onclick={handleClick} /> : null })}
       </div>
